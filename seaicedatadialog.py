@@ -41,15 +41,14 @@ class DownloadThread(QtCore.QThread):
         self.emit( QtCore.SIGNAL('update(QString)'), text )
  
     def run(self):
-	self.log("")
-	self.log("")
-	self.log("")
+	self.log("Downloading...")
+	self.log("Date range {0} to {1}".format(self.mindate.strftime('%Y/%m/%d'), self.maxdate.strftime('%Y/%m/%d')))
         C = downloader.get(self.datatype)
 	d = C(self.mindate, self.maxdate)
 	tifs = d.download(self.path)
 	self.log("Downloaded.".format(self.path))
 	if self.composite == True:
-	    self.log("Creating composite...")
+	    self.log("Creating composite from {} files...".format(len(tifs)))
 	    Comp = Composite(tifs)
 	    Comp.composite()
 	    self.log("Composite completed.")
@@ -72,7 +71,7 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
 	self.iface = iface
-
+	self.composite = False
     
     def log(self, text):
         self.plainTextEdit.appendPlainText(text)

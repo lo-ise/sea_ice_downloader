@@ -84,9 +84,12 @@ class DailyAntarctic:
 					all_data_dict[d[3:11]] = d	
 			
 			for d in dates:
-				filename = all_data_dict[d]
-				filepath = url + filename
-				filepaths.append(filepath)
+				try:
+					filename = all_data_dict[d]
+					filepath = url + filename
+					filepaths.append(filepath)
+				except:
+					continue
 
 		return filepaths
 
@@ -207,8 +210,8 @@ class DailyAntarctic:
 		return '{}.tif'.format(targetfile.replace('.bin', ''))
 
 if __name__ == "__main__":
-	sd = datetime(2012,01,01)
-	ed = datetime(2012,01,02)
+	sd = datetime(1980,01,01)
+	ed = datetime(1980,01,02)
 	d = DailyAntarctic(sd,ed)
 	l = d.download('/Users/Ireland/rsr/qgis-dev/seaice/')
 	print l
