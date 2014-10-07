@@ -48,17 +48,10 @@ class DownloadThread(QtCore.QThread):
 	self.tifs = d.download(self.path)
 	self.log("Downloaded.".format(self.path))
 	if self.composite == True:
-	    self.log("Creating composite from {} files...".format(len(tifs)))
+	    self.log("Creating composite from {} files...".format(len(self.tifs)))
 	    Comp = Composite(self.tifs)
 	    Comp.composite()
 	    self.log("Composite completed.")
-
-	#self.log("Adding to canvas...")
-	#self.iface.addRasterLayer('/Users/Ireland/rsr/qgis-dev/seaice/nt_20120101_f17_v01_s.tif')
-	#for t in self.tifs:
-	#	self.iface.addRasterLayer(t)
-	#	self.log('{}'.format(t))
-	#self.log("Added.")
 
 
 class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
@@ -72,7 +65,9 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
         self.setupUi(self)
 	self.composite = False
 	self.iface = iface
-    
+   	self.canvas = False
+
+
     def log(self, text):
         self.plainTextEdit.appendPlainText(text)
 
@@ -97,8 +92,18 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 	#self.iface.addRasterLayer('/Users/Ireland/rsr/qgis-dev/seaice/nt_20120101_f17_v01_s.tif')
         self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
         self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
-        self.downloadThread.start()
+	self.downloadThread.start()
+	
+        self.connect(self.downloadThread, QtCore.SIGNAL('finished()'), self.addlayers)
 
-	#self.iface.addRasterLayer('/Users/Ireland/rsr/qgis-dev/seaice/nt_20120101_f17_v01_s.tif')
+
+    def addlayers(self):
+	if self.checkBoxCanvas.isChecked() == True:
+	    tifs = self.downloadThread.tifs
+	    for t in tifs:
+	        self.iface.addRasterLayer(t)
+
+
+
 
 
