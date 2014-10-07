@@ -49,7 +49,7 @@ class SeaIceData:
                 QCoreApplication.installTranslator(self.translator)
 
         # Create the dialog (after translation) and keep reference
-        self.dlg = SeaIceDataDialog(iface)
+        self.dlg = SeaIceDataDialog()
 
     def initGui(self):
         # Create action that will start plugin configuration

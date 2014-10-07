@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>406</width>
-    <height>392</height>
+    <height>397</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -66,12 +66,22 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>1980</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
         <property name="minimumDateTime">
          <datetime>
           <hour>0</hour>
           <minute>0</minute>
           <second>0</second>
-          <year>1978</year>
+          <year>1980</year>
           <month>1</month>
           <day>1</day>
          </datetime>
@@ -85,7 +95,7 @@
         </property>
         <property name="minimumDate">
          <date>
-          <year>1978</year>
+          <year>1980</year>
           <month>1</month>
           <day>1</day>
          </date>
@@ -98,7 +108,7 @@
         </property>
         <property name="date">
          <date>
-          <year>1995</year>
+          <year>1980</year>
           <month>1</month>
           <day>1</day>
          </date>

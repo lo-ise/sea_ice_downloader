@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_seaicedata.ui'
 #
-# Created: Tue Oct  7 12:20:19 2014
+# Created: Tue Oct  7 16:18:39 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_SeaIceData(object):
     def setupUi(self, SeaIceData):
         SeaIceData.setObjectName(_fromUtf8("SeaIceData"))
-        SeaIceData.resize(406, 392)
+        SeaIceData.resize(406, 397)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -57,11 +57,12 @@ class Ui_SeaIceData(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.startDate.sizePolicy().hasHeightForWidth())
         self.startDate.setSizePolicy(sizePolicy)
-        self.startDate.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(1978, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.startDate.setDateTime(QtCore.QDateTime(QtCore.QDate(1980, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.startDate.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(1980, 1, 1), QtCore.QTime(0, 0, 0)))
         self.startDate.setMaximumDate(QtCore.QDate(2013, 12, 31))
-        self.startDate.setMinimumDate(QtCore.QDate(1978, 1, 1))
+        self.startDate.setMinimumDate(QtCore.QDate(1980, 1, 1))
         self.startDate.setCalendarPopup(True)
-        self.startDate.setDate(QtCore.QDate(1995, 1, 1))
+        self.startDate.setDate(QtCore.QDate(1980, 1, 1))
         self.startDate.setObjectName(_fromUtf8("startDate"))
         self.horizontalLayout_2.addWidget(self.startDate)
         self.endDate = QtGui.QDateEdit(self.layoutWidget)
