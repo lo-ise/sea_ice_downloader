@@ -41,17 +41,20 @@ class DownloadThread(QtCore.QThread):
         self.emit( QtCore.SIGNAL('update(QString)'), text )
  
     def run(self):
-	self.log("Downloading...")
-	self.log("Date range {0} to {1}".format(self.mindate.strftime('%Y/%m/%d'), self.maxdate.strftime('%Y/%m/%d')))
-        C = downloader.get(self.datatype)
-	d = C(self.mindate, self.maxdate)
-	self.tifs = d.download(self.path)
-	self.log("Downloaded.".format(self.path))
-	if self.composite == True:
-	    self.log("Creating composite from {} files...".format(len(self.tifs)))
-	    Comp = Composite(self.tifs)
-	    Comp.composite()
-	    self.log("Composite completed.")
+	if self.maxdate >= self.mindate:
+	    self.log("Downloading...")
+       	    self.log("Date range {0} to {1}".format(self.mindate.strftime('%Y/%m/%d'), self.maxdate.strftime('%Y/%m/%d')))
+            C = downloader.get(self.datatype)
+	    d = C(self.mindate, self.maxdate)
+	    self.tifs = d.download(self.path)
+	    self.log("Downloaded.".format(self.path))
+	    if self.composite == True:
+	        self.log("Creating composite from {} files...".format(len(self.tifs)))
+	        Comp = Composite(self.tifs)
+	        Comp.composite()
+	        self.log("Composite completed.")
+	else:
+	    self.log("Invalid date range")
 
 
 class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
@@ -98,7 +101,7 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 
 
     def addlayers(self):
-	if self.checkBoxCanvas.isChecked() == True:
+	if self.checkBoxCanvas.isChecked() == True and hasattr(self.downloadThread, 'tifs'):
 	    tifs = self.downloadThread.tifs
 	    for t in tifs:
 	        self.iface.addRasterLayer(t)
