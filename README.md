@@ -8,29 +8,12 @@ The Plugin is currently working, but has not been subject to wide use. Therefore
 
 
 ##The data
-The data is sourced from (NSIDC)[website] (put details here). For full details on the input data, please refer to the (official documentation.)[website] 
+The data is sourced from [NSIDC](http://nsidc.org/data/nsidc-0051). For full details on the input data, please refer to the [official documentation.](http://nsidc.org/data/docs/daac/nsidc0051_gsfc_seaice.gd.html) 
 
-The plugin sources the daily grids of sea ice concenration. Valid date range is from 1979 to 2013.
+The plugin sources the daily grids of sea ice concentration. Valid date range is from 1979 to 2013.
 
 ##Using the plugin
-Add the following plugin repository to QGIS Desktop.
 
-PUT PLUGIN REPO HERE
+Information to follow....
 
-Search for the plugin, named, SeaIceData
-
-Install it. 
-
-It should appear as an icon on the toolbar. 
-
-
-##Dev notes
-This currently works and produces a composite also. 
-
-
-###To do
-1. Write up information on the data itself
-2. the actual downloading is a bit clunky. Would be better to use ftplib, but I couldnt get this to work.
-3. Option to display the grids in the iface. I don't understand why this isn't working at the moment. 
-4. Add the northern dataset. 
 
