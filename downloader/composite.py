@@ -7,9 +7,8 @@ class Composite:
 
 	def __init__(self, filelist, calculation='mean'):
 		
-		self.filelist = filelist
-		self.outputname = '{0}/{1}_composite_seaice.tif'.format(os.path.dirname(self.filelist[0]), calculation) 
-
+		self.filelist       = filelist
+		self.composite_name = '{0}/{1}_composite_seaice.tif'.format(os.path.dirname(self.filelist[0]), calculation) 
 
 		g = gdal.Open(self.filelist[0])	
 		self.proj   = g.GetProjection()
@@ -29,7 +28,8 @@ class Composite:
 		
 		arr = self.__getarray(self.filelist)
 		arr = self.__averagearr(arr, self.calculation)
-		tif = self.__savearr(arr, self.outputname)
+		tif = self.__savearr(arr, self.composite_name)
+
 
 
 	def __getarray(self, filelist):

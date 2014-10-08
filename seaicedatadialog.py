@@ -54,7 +54,8 @@ class DownloadThread(QtCore.QThread):
 	        self.log("Creating composite from {} files...".format(len(self.tifs)))
 	        Comp = Composite(self.tifs)
 	        Comp.composite()
-	        self.log("Composite completed.")
+		self.log("Composite completed: {}".format(Comp.composite_name))
+		self.tifs.append(Comp.composite_name)
 	else:
 	    self.log("Invalid date range")
 
@@ -94,7 +95,6 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
         mindate  = self.startDate.date()
         maxdate  = self.endDate.date()
         path     = self.txtPath.text()
-	#self.iface.addRasterLayer('/Users/Ireland/rsr/qgis-dev/seaice/nt_20120101_f17_v01_s.tif')
         self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
         self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
 	self.downloadThread.start()
@@ -115,8 +115,6 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 
 		l.loadNamedStyle(qml)
 		self.iface.legendInterface().refreshLayerSymbology(l)
-		#if hasattr(l, "setCacheImage"):
-		    #l.setCacheImage(None)
 
 	    os.remove(qml)
 
