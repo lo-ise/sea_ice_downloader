@@ -24,6 +24,8 @@ from downloader.composite import Composite
 from PyQt4 import QtCore, QtGui
 from ui_seaicedata import Ui_SeaIceData
 from qgis.utils import iface
+import makeqml
+import os
 
 class DownloadThread(QtCore.QThread):
     def __init__(self, path, mindate, maxdate, composite):
@@ -106,7 +108,17 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 	    for t in tifs:
 	        self.iface.addRasterLayer(t)
 
+	    layers = self.iface.legendInterface().layers()
+	    pth = os.path.dirname(tifs[0])
+	    qml = makeqml.makeqml(pth)
+	    for l in layers:
 
+		l.loadNamedStyle(qml)
+		self.iface.legendInterface().refreshLayerSymbology(l)
+		#if hasattr(l, "setCacheImage"):
+		    #l.setCacheImage(None)
+
+	    os.remove(qml)
 
 
 
