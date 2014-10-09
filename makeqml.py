@@ -1,3 +1,7 @@
+# This is used to create a .qml file.
+# The .qml file is used to style the layers that are added to the canvas.
+
+
 qmltext = """
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
 <qgis version="2.4.0-Chugiak" minimumScale="-4.65661e-10" maximumScale="1e+08" hasScaleBasedVisibilityFlag="0">

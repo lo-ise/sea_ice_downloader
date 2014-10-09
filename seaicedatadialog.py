@@ -27,6 +27,8 @@ from qgis.utils import iface
 import makeqml
 import os
 
+
+
 class DownloadThread(QtCore.QThread):
     def __init__(self, path, mindate, maxdate, composite):
         self.path    = '{}/'.format(path)
@@ -63,35 +65,48 @@ class DownloadThread(QtCore.QThread):
 class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
     def __init__(self):
         QtGui.QDialog.__init__(self)
-        # Set up the user interface from Designer.
-        # After setupUI you can access any designer object by doing
-        # self.<objectname>, and you can use autoconnect slots - see
-        # http://qt-project.org/doc/qt-4.8/designer-using-a-ui-file.html
-        # #widgets-and-dialogs-with-auto-connect
-        self.setupUi(self)
+        
+	self.setupUi(self)
 	self.composite = False
 	self.iface = iface
    	self.canvas = False
 
 
     def log(self, text):
-        self.plainTextEdit.appendPlainText(text)
+	"""
+	Adds log info to the UI, coming from 
+	DownloadThread.
+	"""
+        
+	self.plainTextEdit.appendPlainText(text)
 
 
     def open(self):
+	"""
+	Opens a file dialog for user to select doanload path.
+	"""
+	
 	self.fileDialog = QtGui.QFileDialog(self)
-	#self.fileDialog.show()
 	self.txtPath.setText(self.fileDialog.getExistingDirectory())
 
 
     def update(self):
-        if self.checkBoxComposite.isChecked() == True:
+	"""
+	Records whether user wants composite
+	"""
+
+	if self.checkBoxComposite.isChecked() == True:
             self.composite = True
 	else:
             self.composite = False
 
 
     def accept(self):
+	"""
+	Initiates the download and processing once user 
+	clicks 'Download'
+	"""
+
         mindate  = self.startDate.date()
         maxdate  = self.endDate.date()
         path     = self.txtPath.text()
@@ -103,6 +118,11 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 
 
     def addlayers(self):
+	"""
+	Handles adding and styling data to canvas once downloaded,
+	if users wants to add it. 
+	"""
+
 	if self.checkBoxCanvas.isChecked() == True and hasattr(self.downloadThread, 'tifs'):
 	    tifs = self.downloadThread.tifs
 	    for t in tifs:

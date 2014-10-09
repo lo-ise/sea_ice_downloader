@@ -11,7 +11,19 @@ import os
 
 class DailyAntarctic:
 	"""
-	This is my CHL class
+	Given a date range, this downloads daily grids of sea ice concentration
+	from NSIDC (http://nsidc.org/data/nsidc-0051). 
+
+	Raw data is in .bin files. The output from processing functions here is 
+	a GeoTiff.
+
+	This was originally created for use within a QGIS Plugin, but can also 
+	be used as a standalone module.
+
+	Inputs are:
+	start_date (a Python date object)
+	end_date   (a Python date object)
+
 	"""
 
 	def __init__(self, start_date, end_date):
@@ -23,7 +35,11 @@ class DailyAntarctic:
 
 	def download(self, path):
 		"""
-		This downloads
+		Downloads the .bin files, reprojects to 3031 and 
+		saves to GeoTiff.
+
+		Input:
+		path - where the data will be saved. 
 	
 		"""
 		failed_files = []
@@ -43,7 +59,10 @@ class DailyAntarctic:
 
 	def __createfilenames(self):
 		"""
-		This needs thinking about. 
+		Based on the date range, this creates a list of 
+		string dates for the date range specified. 
+
+
 		"""
 	
 		filenames = {} #save as (year, date)
@@ -70,8 +89,14 @@ class DailyAntarctic:
 	def __paths(self, dates_dict):
 		"""
 		This takes a dictionary of year[datestrings]. 
-		For each year it creates a path by setting a connection to the url
+		
+		There are gaps in the data timeseries, and the 
+		naming convention is not consistent across all
+		years. Therefore, this checks what is on the 
+		ftp first. 
+		
 		"""
+		
 		filepaths = []
 		for year in dates_dict:
 			dates = dates_dict[year]
@@ -96,12 +121,13 @@ class DailyAntarctic:
 
 	def __extract(self, targetfile):
 		"""
-		This needs thinking about
+		This takes an ftp path to a file and downloads
+		the file.
+
 		"""
+		
 		binfile = targetfile.replace(self.urlpath, '')
-		print binfile
 		binfile = self.path + binfile[5:]
-		print binfile
 
 		try:
 			thefile = urllib2.urlopen(targetfile)
@@ -117,7 +143,10 @@ class DailyAntarctic:
 
 	def __make_header(self, headerfile):
 		"""
-		called only in __process(). Makes a header file.
+		Called only in __process(). Makes a header file
+		for the associated .bin file, such that it
+		becomes a recognised GDAL dataset. 
+
 		"""
 
         	f = open(headerfile, 'w')
@@ -142,10 +171,17 @@ class DailyAntarctic:
 
 	def __process(self, targetfile):
 		"""
-		This processes the uncompressed file downloaded 
+		Processes the uncompressed file downloaded 
 		in self.__extract()
-		"""
 
+		1. Reads the file in as an array
+		2. Scales to percentage values
+		3. Sets coastline/nodata values all as 255
+		4. Projects dataset to epsg:3031
+		5. Saves as a Geotiff to path
+		6. Writes metadata
+		
+		"""
 
 		headerfile= targetfile.replace('.bin', '.hdr')
 		self.__make_header(headerfile)
@@ -213,5 +249,5 @@ if __name__ == "__main__":
 	sd = datetime(1980,01,01)
 	ed = datetime(1980,01,02)
 	d = DailyAntarctic(sd,ed)
-	l = d.download('/Users/Ireland/rsr/qgis-dev/seaice/')
+	l = d.download('~/rsr/qgis-dev/seaice/')
 	print l

@@ -4,6 +4,20 @@ import os
 from datetime import datetime
 
 class Composite:
+	"""
+	Creates an averaged composite of any number of 
+	individual single band rasters. 
+
+	Developed for use within QGIS plugin, but can be
+	used as a standalone module, although the metadata
+	is currently specific to sea ice concetration 
+	from NSIDC. 
+
+	Inputs:
+	filelist of rasters that need compositing
+	calculation - with 'mean' or 'median'
+
+	"""
 
 	def __init__(self, filelist, calculation='mean'):
 		
@@ -23,7 +37,8 @@ class Composite:
 
 	def composite(self):
 		"""
-		This one creates the composite from the other private functions
+		Creates a composite from the input files. 
+
 		"""
 		
 		arr = self.__getarray(self.filelist)
@@ -35,7 +50,7 @@ class Composite:
 	def __getarray(self, filelist):
 		"""
 		Puts together a 3d array from the list of input files
-		Could put in a catch here if the array is too big?
+		
 		"""
 
 		g = gdal.Open(filelist[0])
@@ -59,8 +74,9 @@ class Composite:
 
 	def __averagearr(self, arr, calculation):
 		"""
-		this one creates a median or a mean array
-		default is mean
+		Calculates a median or a mean array
+		Default is mean
+
 		"""
 
 		med = arr[0,...]
@@ -83,6 +99,7 @@ class Composite:
 		"""
 		Saves the output file as a geotif
 		"""
+		
 		outfile = gdal.GetDriverByName("GTiff")
 		dst_ds  = outfile.Create(outputname, self.rows, self.cols, 1, gdal.GDT_Byte)
 		dst_ds.SetProjection(self.proj)
@@ -105,7 +122,7 @@ class Composite:
 
 
 if __name__ == "__main__":
-	files = ['/Users/Ireland/rsr/qgis-dev/compositeseaice/nt_19950101_f11_v01_s.tif', '/Users/Ireland/rsr/qgis-dev/compositeseaice/nt_19950102_f11_v01_s.tif']
+	files = ['~/rsr/qgis-dev/compositeseaice/nt_19950101_f11_v01_s.tif', '~/rsr/qgis-dev/compositeseaice/nt_19950102_f11_v01_s.tif']
 	Comp = Composite(files)
 	Comp.composite()
 
