@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_seaicedata.ui'
 #
-# Created: Sat Oct 11 18:13:42 2014
+# Created: Sat Oct 11 18:19:16 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -87,7 +87,9 @@ class Ui_SeaIceData(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout_2.addWidget(self.label)
         self.txtPath = QtGui.QLineEdit(self.widget)
+        self.txtPath.setEnabled(True)
         self.txtPath.setText(_fromUtf8(""))
+        self.txtPath.setReadOnly(True)
         self.txtPath.setObjectName(_fromUtf8("txtPath"))
         self.horizontalLayout_2.addWidget(self.txtPath)
         self.toolButton = QtGui.QToolButton(self.widget)
