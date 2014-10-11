@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Sea Ice Concentration Downloader by lo-ise</title>
+    <title>Sea Ice Concentration Downloader v1.0.0 by lo-ise</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Sea Ice Concentration Downloader</h1>
+        <h1>Sea Ice Concentration Downloader v1.0.0</h1>
         <p></p>
 
         <p class="view"><a href="https://github.com/lo-ise/sea_ice_downloader">View the Project on GitHub <small>lo-ise/sea_ice_downloader</small></a></p>
@@ -33,7 +33,7 @@
 
 <p>This is a QGIS Plugin which allows easy download of sea ice concentration data from <a href="http://nsidc.org/data/seaice_index/">NSIDC</a> (National Snow and Ice Data Centre). </p>
 
-<p>It downloads daily sea ice concentration grids within a defined time range as well as an optional averaged composite. The data is saved in GeoTiff format, to Antarctic Polar Stereographic projection (EPSG: 3031). </p>
+<p>It downloads daily sea ice concentration grids within a defined time range and gives the option of output of an averaged composite. The data is saved in GeoTiff format, and projected to Antarctic Polar Stereographic (EPSG: 3031). </p>
 
 <p>The Plugin is currently working, but has not been subject to wide use. Therefore, there may be problems with it. </p>
 
@@ -42,12 +42,17 @@
 
 <p>The data is sourced from <a href="http://nsidc.org/data/nsidc-0051">NSIDC</a>. For full details on the input data, please refer to the <a href="http://nsidc.org/data/docs/daac/nsidc0051_gsfc_seaice.gd.html">official documentation.</a> </p>
 
-<p>Valid date range is from 1979 to 2013.</p>
+<p>Valid date range is from 1978/10/26 to 2013/12/31.</p>
 
 <h2>
 <a name="using-the-plugin" class="anchor" href="#using-the-plugin"><span class="octicon octicon-link"></span></a>Using the plugin</h2>
 
-<p>Information to follow....</p>
+<p>Add the following repository:</p>
+
+<pre><code>http://plugins.remotesensing.io/plugins.xml?qgis=2.4
+</code></pre>
+
+<p>Install the plugin, name Sea Ice Concentration Downloader.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/lo-ise">lo-ise</a></p>
