@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_seaicedata.ui'
 #
-# Created: Tue Oct  7 21:00:43 2014
+# Created: Sat Oct 11 17:47:33 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,26 +26,28 @@ except AttributeError:
 class Ui_SeaIceData(object):
     def setupUi(self, SeaIceData):
         SeaIceData.setObjectName(_fromUtf8("SeaIceData"))
-        SeaIceData.resize(406, 408)
+        SeaIceData.resize(425, 408)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(SeaIceData.sizePolicy().hasHeightForWidth())
         SeaIceData.setSizePolicy(sizePolicy)
-        self.label_5 = QtGui.QLabel(SeaIceData)
-        self.label_5.setGeometry(QtCore.QRect(12, 12, 178, 19))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_5.setFont(font)
-        self.label_5.setObjectName(_fromUtf8("label_5"))
+        SeaIceData.setWindowTitle(_fromUtf8(""))
+        SeaIceData.setSizeGripEnabled(False)
         self.widget = QtGui.QWidget(SeaIceData)
-        self.widget.setGeometry(QtCore.QRect(0, 41, 405, 357))
+        self.widget.setGeometry(QtCore.QRect(10, 10, 405, 384))
         self.widget.setObjectName(_fromUtf8("widget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.widget)
         self.gridLayout_2.setMargin(0)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
+        self.label_3 = QtGui.QLabel(self.widget)
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.gridLayout_2.addWidget(self.label_3, 0, 0, 1, 1)
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
@@ -59,12 +61,13 @@ class Ui_SeaIceData(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.startDate.sizePolicy().hasHeightForWidth())
         self.startDate.setSizePolicy(sizePolicy)
-        self.startDate.setDateTime(QtCore.QDateTime(QtCore.QDate(1980, 1, 1), QtCore.QTime(0, 0, 0)))
-        self.startDate.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(1980, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.startDate.setDateTime(QtCore.QDateTime(QtCore.QDate(1978, 10, 26), QtCore.QTime(0, 0, 0)))
+        self.startDate.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(1978, 10, 26), QtCore.QTime(0, 0, 0)))
         self.startDate.setMaximumDate(QtCore.QDate(2013, 12, 31))
-        self.startDate.setMinimumDate(QtCore.QDate(1980, 1, 1))
+        self.startDate.setMinimumDate(QtCore.QDate(1978, 10, 26))
+        self.startDate.setCurrentSection(QtGui.QDateTimeEdit.YearSection)
         self.startDate.setCalendarPopup(True)
-        self.startDate.setDate(QtCore.QDate(1980, 1, 1))
+        self.startDate.setDate(QtCore.QDate(1978, 10, 26))
         self.startDate.setObjectName(_fromUtf8("startDate"))
         self.horizontalLayout.addWidget(self.startDate)
         self.endDate = QtGui.QDateEdit(self.widget)
@@ -97,7 +100,7 @@ class Ui_SeaIceData(object):
         self.checkBoxCanvas = QtGui.QCheckBox(self.widget)
         self.checkBoxCanvas.setObjectName(_fromUtf8("checkBoxCanvas"))
         self.gridLayout.addWidget(self.checkBoxCanvas, 3, 0, 1, 1)
-        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         self.plainTextEdit = QtGui.QPlainTextEdit(self.widget)
         self.plainTextEdit.setEnabled(False)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
@@ -107,11 +110,14 @@ class Ui_SeaIceData(object):
         self.plainTextEdit.setSizePolicy(sizePolicy)
         self.plainTextEdit.setMinimumSize(QtCore.QSize(0, 180))
         self.plainTextEdit.setBaseSize(QtCore.QSize(0, 0))
+        self.plainTextEdit.setAutoFillBackground(False)
+        self.plainTextEdit.setFrameShape(QtGui.QFrame.Box)
+        self.plainTextEdit.setFrameShadow(QtGui.QFrame.Plain)
         self.plainTextEdit.setObjectName(_fromUtf8("plainTextEdit"))
-        self.gridLayout_2.addWidget(self.plainTextEdit, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.plainTextEdit, 2, 0, 1, 1)
         self.btnDownload = QtGui.QPushButton(self.widget)
         self.btnDownload.setObjectName(_fromUtf8("btnDownload"))
-        self.gridLayout_2.addWidget(self.btnDownload, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.btnDownload, 3, 0, 1, 1)
 
         self.retranslateUi(SeaIceData)
         QtCore.QObject.connect(self.btnDownload, QtCore.SIGNAL(_fromUtf8("clicked()")), SeaIceData.accept)
@@ -121,8 +127,7 @@ class Ui_SeaIceData(object):
         QtCore.QMetaObject.connectSlotsByName(SeaIceData)
 
     def retranslateUi(self, SeaIceData):
-        SeaIceData.setWindowTitle(_translate("SeaIceData", "OceanData", None))
-        self.label_5.setText(_translate("SeaIceData", "Sea Ice Concentration", None))
+        self.label_3.setText(_translate("SeaIceData", "Sea Ice Concentration Downloader", None))
         self.label_2.setText(_translate("SeaIceData", "Date range:  ", None))
         self.startDate.setDisplayFormat(_translate("SeaIceData", "yyyy/MM/dd", None))
         self.endDate.setDisplayFormat(_translate("SeaIceData", "yyyy/MM/dd", None))
@@ -130,5 +135,7 @@ class Ui_SeaIceData(object):
         self.toolButton.setText(_translate("SeaIceData", "...", None))
         self.checkBoxComposite.setText(_translate("SeaIceData", "Create composite", None))
         self.checkBoxCanvas.setText(_translate("SeaIceData", "Add data to canvas", None))
+        self.plainTextEdit.setPlainText(_translate("SeaIceData", "This plugin provides access to sea ice concerntration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.\n"
+"", None))
         self.btnDownload.setText(_translate("SeaIceData", "Download", None))
 

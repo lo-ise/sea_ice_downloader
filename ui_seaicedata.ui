@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
+    <width>425</width>
     <height>408</height>
    </rect>
   </property>
@@ -17,39 +17,36 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>OceanData</string>
+   <string/>
   </property>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>12</y>
-     <width>178</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Sea Ice Concentration</string>
-   </property>
-  </widget>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>41</y>
+     <x>10</x>
+     <y>10</y>
      <width>405</width>
-     <height>357</height>
+     <height>384</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sea Ice Concentration Downloader</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -73,9 +70,9 @@
             <hour>0</hour>
             <minute>0</minute>
             <second>0</second>
-            <year>1980</year>
-            <month>1</month>
-            <day>1</day>
+            <year>1978</year>
+            <month>10</month>
+            <day>26</day>
            </datetime>
           </property>
           <property name="minimumDateTime">
@@ -83,9 +80,9 @@
             <hour>0</hour>
             <minute>0</minute>
             <second>0</second>
-            <year>1980</year>
-            <month>1</month>
-            <day>1</day>
+            <year>1978</year>
+            <month>10</month>
+            <day>26</day>
            </datetime>
           </property>
           <property name="maximumDate">
@@ -97,10 +94,13 @@
           </property>
           <property name="minimumDate">
            <date>
-            <year>1980</year>
-            <month>1</month>
-            <day>1</day>
+            <year>1978</year>
+            <month>10</month>
+            <day>26</day>
            </date>
+          </property>
+          <property name="currentSection">
+           <enum>QDateTimeEdit::YearSection</enum>
           </property>
           <property name="displayFormat">
            <string>yyyy/MM/dd</string>
@@ -110,9 +110,9 @@
           </property>
           <property name="date">
            <date>
-            <year>1980</year>
-            <month>1</month>
-            <day>1</day>
+            <year>1978</year>
+            <month>10</month>
+            <day>26</day>
            </date>
           </property>
          </widget>
@@ -183,7 +183,7 @@
       </item>
      </layout>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QPlainTextEdit" name="plainTextEdit">
       <property name="enabled">
        <bool>false</bool>
@@ -206,9 +206,22 @@
         <height>0</height>
        </size>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="plainText">
+       <string>This plugin provides access to sea ice concerntration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.
+</string>
+      </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="3" column="0">
      <widget class="QPushButton" name="btnDownload">
       <property name="text">
        <string>Download</string>
