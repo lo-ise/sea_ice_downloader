@@ -1,4 +1,4 @@
-Sea Ice Concentration Downloader V1.0.0
+Sea Ice Concentration Downloader v1.0.0
 =======================================
 
 ##What it does
