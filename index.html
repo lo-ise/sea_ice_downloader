@@ -33,7 +33,7 @@
 
 <p>This is a QGIS Plugin which allows easy download of sea ice concentration data from <a href="http://nsidc.org/data/seaice_index/">NSIDC</a> (National Snow and Ice Data Centre). </p>
 
-<p>It downloads daily sea ice concentration grids within a defined time range and gives the option of output of an averaged composite. The data is saved in GeoTiff format, and projected to Antarctic Polar Stereographic (EPSG: 3031). </p>
+<p>It downloads daily sea ice concentration grids within a defined time range together with an optional averaged composite of all downloaded data. The data is saved in GeoTiff format, and projected to Antarctic Polar Stereographic (EPSG: 3031). </p>
 
 <p>The Plugin is currently working, but has not been subject to wide use. Therefore, there may be problems with it. </p>
 
@@ -42,17 +42,26 @@
 
 <p>The data is sourced from <a href="http://nsidc.org/data/nsidc-0051">NSIDC</a>. For full details on the input data, please refer to the <a href="http://nsidc.org/data/docs/daac/nsidc0051_gsfc_seaice.gd.html">official documentation.</a> </p>
 
-<p>Valid date range is from 1978/10/26 to 2013/12/31.</p>
+<p>The valid date range is from 1978/10/26 to 2013/12/31.</p>
 
 <h2>
-<a name="using-the-plugin" class="anchor" href="#using-the-plugin"><span class="octicon octicon-link"></span></a>Using the plugin</h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
+<p>The plugin requires QGIS version 2.0 or higher. It can be installed via the Plugin Manager. </p>
+
+<ol>
+<li>Navigate to <code>Plugins &gt; Manage and Install Plugins...</code>
+</li>
+<li>Click <code>Settings</code>
+</li>
+<li>
 <p>Add the following repository:</p>
 
-<pre><code>http://plugins.remotesensing.io/plugins.xml?qgis=2.4
-</code></pre>
-
-<p>Install the plugin, name Sea Ice Concentration Downloader.</p>
+<p><a href="http://plugins.remotesensing.io/plugins.xml?qgis=2.4">http://plugins.remotesensing.io/plugins.xml?qgis=2.4</a></p>
+</li>
+<li><p>Click on <code>New</code> to see all newly available plugins. </p></li>
+<li>Install the plugin, name Sea Ice Concentration Downloader.</li>
+</ol>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/lo-ise">lo-ise</a></p>
