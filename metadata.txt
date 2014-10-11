@@ -12,7 +12,7 @@
 name=Sea Ice Data Downloader
 qgisMinimumVersion=2.0
 description=Downloads sea ice concentration data from NSIDC
-version=0.1
+version=1.0.0
 author=Louise Ireland
 email=louireland@gmail.com
 
@@ -24,11 +24,11 @@ email=louireland@gmail.com
 # changelog=
 
 # tags are comma separated with spaces allowed
-tags=
+tags=sea ice,antarctica,downloader,data
 
 homepage=
-tracker=
-repository=
+tracker=https://github.com/lo-ise/seaice-downloader/issues
+repository=https://github.com/lo-ise/seaice-downloader
 icon=icon.png
 # experimental flag
 experimental=False

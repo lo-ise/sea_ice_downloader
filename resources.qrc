@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/seaicedata" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
