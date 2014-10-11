@@ -110,11 +110,13 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
         mindate  = self.startDate.date()
         maxdate  = self.endDate.date()
         path     = self.txtPath.text()
-        self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
-        self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
-	self.downloadThread.start()
-	
-        self.connect(self.downloadThread, QtCore.SIGNAL('finished()'), self.addlayers)
+	if path == "":
+	    self.plainTextEdit.appendPlainText("Error: Enter a download directory.")
+        else:
+	    self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
+            self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
+	    self.downloadThread.start()
+            self.connect(self.downloadThread, QtCore.SIGNAL('finished()'), self.addlayers)
 
 
     def addlayers(self):

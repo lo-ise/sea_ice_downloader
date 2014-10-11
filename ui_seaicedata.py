@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_seaicedata.ui'
 #
-# Created: Sat Oct 11 17:47:33 2014
+# Created: Sat Oct 11 18:13:42 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -102,7 +102,7 @@ class Ui_SeaIceData(object):
         self.gridLayout.addWidget(self.checkBoxCanvas, 3, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         self.plainTextEdit = QtGui.QPlainTextEdit(self.widget)
-        self.plainTextEdit.setEnabled(False)
+        self.plainTextEdit.setEnabled(True)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(2)
         sizePolicy.setVerticalStretch(2)
@@ -113,6 +113,8 @@ class Ui_SeaIceData(object):
         self.plainTextEdit.setAutoFillBackground(False)
         self.plainTextEdit.setFrameShape(QtGui.QFrame.Box)
         self.plainTextEdit.setFrameShadow(QtGui.QFrame.Plain)
+        self.plainTextEdit.setUndoRedoEnabled(False)
+        self.plainTextEdit.setReadOnly(True)
         self.plainTextEdit.setObjectName(_fromUtf8("plainTextEdit"))
         self.gridLayout_2.addWidget(self.plainTextEdit, 2, 0, 1, 1)
         self.btnDownload = QtGui.QPushButton(self.widget)
@@ -135,7 +137,7 @@ class Ui_SeaIceData(object):
         self.toolButton.setText(_translate("SeaIceData", "...", None))
         self.checkBoxComposite.setText(_translate("SeaIceData", "Create composite", None))
         self.checkBoxCanvas.setText(_translate("SeaIceData", "Add data to canvas", None))
-        self.plainTextEdit.setPlainText(_translate("SeaIceData", "This plugin provides access to sea ice concerntration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.\n"
+        self.plainTextEdit.setPlainText(_translate("SeaIceData", "This plugin provides access to sea ice concentration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.\n"
 "", None))
         self.btnDownload.setText(_translate("SeaIceData", "Download", None))
 
