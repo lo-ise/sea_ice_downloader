@@ -29,10 +29,9 @@ The plugin requires QGIS version 2.0 or higher. It can be installed via the Plug
 
 ##Using the plugin
 1. ![Toolbar button](images/icon_button.png)  Locate this icon on the toolbar and click it to open the plugin.
-
 ![Plugin interface](/images/interface.png)
 
-2. Select a date **range** and **download path**. Select whether you want to create an averaged **composite** and whether you wish to add the composite to the map canvas. 
+2. Select a **date range** and **download path**. Select whether you want to create an averaged **composite** and whether you wish to add the composite to the map canvas. 
 
 3. Click **Download**
 
