@@ -1,0 +1,7 @@
+li img {
+  margin-top: 10px;
+}
+
+section > h1 {
+  display: none;
+}
