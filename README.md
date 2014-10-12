@@ -22,7 +22,7 @@ The plugin requires QGIS version 2.0 or higher. It can be installed via the Plug
 2. Click `Settings`
 3. Add the following repository:
 
-    http://plugins.remotesensing.io/plugins.xml?qgis=2.4
+    `http://plugins.remotesensing.io/plugins.xml`
 
 4. Click on `New` to see all newly available plugins. 
 5. Install the plugin, name Sea Ice Concentration Downloader.
