@@ -27,4 +27,13 @@ The plugin requires QGIS version 2.0 or higher. It can be installed via the Plug
 4. Click on `New` to see all newly available plugins. 
 5. Install the plugin, name Sea Ice Concentration Downloader.
 
+##Using the plugin
+![Toolbar button](images/icon_button.png) Locate this icon on the toolbar and click it to open the plugin.
 
+![Plugin interface](/images/interface.png)
+
+Select a date range and download path. Select whether you want to create an averaged composite and whether you wish to add the composite to the map camvas. 
+
+WARNING: There are no warnings for large downloads. It is likely to fail if attempting to make a composite from a large date range.
+
+![Sea ice concentration](images/sea_ice_map.png) 
