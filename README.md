@@ -28,7 +28,7 @@ The plugin requires QGIS version 2.0 or higher. It can be installed via the Plug
 5. Install the plugin, name Sea Ice Concentration Downloader.
 
 ##Using the plugin
-![Toolbar button](images/icon_button.png) Locate this icon on the toolbar and click it to open the plugin.
+![Toolbar button](images/icon_button.png)  Locate this icon on the toolbar and click it to open the plugin.
 
 ![Plugin interface](/images/interface.png)
 
