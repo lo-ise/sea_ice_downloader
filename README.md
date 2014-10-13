@@ -19,17 +19,20 @@ The valid date range is from 1978/10/26 to 2013/12/31.
 The plugin requires QGIS version 2.0 or higher. It can be installed via the Plugin Manager. 
 
 1. Navigate to `Plugins > Manage and Install Plugins...`
+
 2. Click `Settings`
+
 3. Add the following repository:
 
     `http://plugins.remotesensing.io/plugins.xml`
 
 4. Click on `New` to see all newly available plugins. 
+
 5. Install the plugin, name Sea Ice Concentration Downloader.
 
 ##Using the plugin
 1. ![Toolbar button](images/icon_button.png)  Locate this icon on the toolbar and click it to open the plugin.
-![Plugin interface](/images/interface.png)
+![Plugin interface](images/interface.png)
 
 2. Select a **date range** and **download path**. Select whether you want to create an averaged **composite** and whether you wish to add the composite to the map canvas. 
 
