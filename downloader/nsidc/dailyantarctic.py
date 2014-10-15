@@ -43,7 +43,7 @@ class DailyAntarctic:
 	
 		"""
 		failed_files = []
-		self.path = path
+		self.path = os.path.join(path)
 		filenames = self.__createfilenames()
 		filenames = self.__paths(filenames)
 		print filenames
@@ -127,7 +127,7 @@ class DailyAntarctic:
 		"""
 		
 		binfile = targetfile.replace(self.urlpath, '')
-		binfile = self.path + binfile[5:]
+		binfile = os.path.join(self.path, binfile[5:])
 
 		try:
 			thefile = urllib2.urlopen(targetfile)

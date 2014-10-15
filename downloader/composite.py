@@ -22,7 +22,7 @@ class Composite:
 	def __init__(self, filelist, calculation='mean'):
 		
 		self.filelist       = filelist
-		self.composite_name = '{0}/{1}_composite_seaice.tif'.format(os.path.dirname(self.filelist[0]), calculation) 
+		self.composite_name = os.path.join(os.path.dirname(self.filelist[0]), '{}_composite_seaice.tif'.format(calculation))
 
 		g = gdal.Open(self.filelist[0])	
 		self.proj   = g.GetProjection()
