@@ -46,7 +46,7 @@ class DownloadThread(QtCore.QThread):
  
     def run(self):
 	if self.maxdate >= self.mindate:
-		self.log("Path: {}".format(self.path))
+	    self.log("Downloading to: {}".format(self.path))
 	    self.log("Downloading...")
        	    self.log("Date range {0} to {1}".format(self.mindate.strftime('%Y/%m/%d'), self.maxdate.strftime('%Y/%m/%d')))
             C = downloader.get(self.datatype)
