@@ -106,25 +106,25 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
 	Initiates the download and processing once user 
 	clicks 'Download'
 	"""
-
+       
+        self.btnDownload.setEnabled(False)
         mindate  = self.startDate.date()
         maxdate  = self.endDate.date()
         path     = self.txtPath.text()
 	if path == "":
 	    self.plainTextEdit.appendPlainText("Error: Enter a download directory.")
         else:
-	    self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
+            self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
             self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
 	    self.downloadThread.start()
             self.connect(self.downloadThread, QtCore.SIGNAL('finished()'), self.addlayers)
-
 
     def addlayers(self):
 	"""
 	Handles adding and styling data to canvas once downloaded,
 	if users wants to add it. 
 	"""
-
+        self.btnDownload.setEnabled(True)
 	if self.checkBoxCanvas.isChecked() == True and hasattr(self.downloadThread, 'tifs'):
 	    tifs = self.downloadThread.tifs
 	    for t in tifs:
