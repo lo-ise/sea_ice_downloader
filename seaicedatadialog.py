@@ -31,7 +31,7 @@ import os
 
 class DownloadThread(QtCore.QThread):
     def __init__(self, path, mindate, maxdate, composite):
-        self.path    = '{}/'.format(path)
+        self.path    = os.path.join(path, '/')
         self.mindate = mindate.toPyDate()
         self.maxdate = maxdate.toPyDate()
         self.datatype = 'dailyantarctic'
