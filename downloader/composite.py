@@ -19,10 +19,10 @@ class Composite:
 
 	"""
 
-	def __init__(self, filelist, calculation='mean'):
+	def __init__(self, filelist, sd, ed, calculation='mean'):
 		
 		self.filelist       = filelist
-		self.composite_name = os.path.join(os.path.dirname(self.filelist[0]), '{}_composite_seaice.tif'.format(calculation))
+		self.composite_name = os.path.join(os.path.dirname(self.filelist[0]), 'nt_{0}_{1}_composite.tif'.format(sd.strftime('%Y%m%d'), ed.strftime('%Y%m%d')))
 
 		g = gdal.Open(self.filelist[0])	
 		self.proj   = g.GetProjection()
@@ -30,6 +30,8 @@ class Composite:
 		
 		self.nodata = g.GetRasterBand(1).GetNoDataValue()
 		self.calculation = calculation
+		self.startdate = sd
+		self.enddate   = ed
 
 		arr = g.ReadAsArray()
 		[self.cols, self.rows] = arr.shape
@@ -108,6 +110,8 @@ class Composite:
 		dst_ds.SetMetadataItem('PRODUCT', '{} sea ice concentration'.format(self.calculation))
 		dst_ds.SetMetadataItem('UNITS', 'Percentage %')
 		dst_ds.SetMetadataItem('DATA_PROVIDER', 'NSIDC')
+		dst_ds.SetMetadataItem('DATA_START_DATE', self.startdate.strftime('%Y-%m-%d'))
+		dst_ds.SetMetadataItem('DATA_END_DATE', self.enddate.strftime('%Y-%m-%d'))
 		dt  = datetime.now()
 		dts = dt.strftime('%Y-%m-%d')
 		dst_ds.SetMetadataItem('CREATION_DATE', dts)

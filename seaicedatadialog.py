@@ -55,7 +55,7 @@ class DownloadThread(QtCore.QThread):
 	    self.log("Downloaded.".format(self.path))
 	    if self.composite == True:
 	        self.log("Creating composite from {} files...".format(len(self.tifs)))
-	        Comp = Composite(self.tifs, self.compcalc)
+	        Comp = Composite(self.tifs, self.mindate, self.maxdate, self.compcalc)
 	        Comp.composite()
 		self.log("Composite completed: {}".format(Comp.composite_name))
 		self.tifs.append(Comp.composite_name)
