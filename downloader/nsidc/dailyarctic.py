@@ -230,19 +230,3 @@ if __name__ == "__main__":
 	d = DailyArctic(sd,ed)
 	l = d.download('/Users/Ireland/rsr/arctic_nsidc_raw/tests/')
 	print l
-	sd = datetime(1999,6,1)
-        ed = datetime(1999,9,30)
-        d = DailyArctic(sd,ed)
-	l = d.download('/Users/Ireland/rsr/arctic_nsidc_raw/tests/')
-	print l
-	sd = datetime(2000,6,1)
-        ed = datetime(2000,9,30)
-        d = DailyArctic(sd,ed)
-	l = d.download('/Users/Ireland/rsr/arctic_nsidc_raw/tests/')
-	print l
-	sd = datetime(2001,6,1)
-        ed = datetime(2001,9,30)
-        d = DailyArctic(sd,ed)
-	l = d.download('/Users/Ireland/rsr/arctic_nsidc_raw/tests/')
-	print l
-

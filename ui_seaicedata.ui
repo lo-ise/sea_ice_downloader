@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>425</width>
-    <height>408</height>
+    <height>424</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,8 +27,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>405</width>
-     <height>384</height>
+     <width>406</width>
+     <height>403</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -48,7 +48,7 @@
     </item>
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
+      <item row="1" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QLabel" name="label_2">
@@ -142,7 +142,7 @@
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label">
@@ -173,18 +173,32 @@
         </item>
        </layout>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QCheckBox" name="checkBoxComposite">
         <property name="text">
          <string>Create composite</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="4" column="0">
        <widget class="QCheckBox" name="checkBoxCanvas">
         <property name="text">
          <string>Add data to canvas</string>
         </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QComboBox" name="datasetBox">
+        <item>
+         <property name="text">
+          <string>Antarctic</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Arctic</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
@@ -228,7 +242,7 @@
        <bool>true</bool>
       </property>
       <property name="plainText">
-       <string>This plugin provides access to sea ice concentration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.
+       <string>This plugin provides access to sea ice concentration data from NSIDC (National Snow and Ice Data Centre), for both Arctic and Antarctic. For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.
 </string>
       </property>
      </widget>

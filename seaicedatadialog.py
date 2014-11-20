@@ -30,11 +30,11 @@ import os
 
 
 class DownloadThread(QtCore.QThread):
-    def __init__(self, path, mindate, maxdate, composite):
+    def __init__(self, path, mindate, maxdate, composite, pole):
         self.path    = os.path.join(path)
         self.mindate = mindate.toPyDate()
         self.maxdate = maxdate.toPyDate()
-        self.datatype = 'dailyantarctic'
+        self.pole = pole
 	self.compcalc = 'median'
 	self.composite = composite
 	QtCore.QThread.__init__(self)
@@ -49,7 +49,7 @@ class DownloadThread(QtCore.QThread):
 	if self.maxdate >= self.mindate:
 	    self.log("Downloading...")
        	    self.log("Date range {0} to {1}".format(self.mindate.strftime('%Y/%m/%d'), self.maxdate.strftime('%Y/%m/%d')))
-            C = downloader.get(self.datatype)
+            C = downloader.get(self.pole)
 	    d = C(self.mindate, self.maxdate)
 	    self.tifs = d.download(self.path)
 	    self.log("Downloaded.".format(self.path))
@@ -112,10 +112,12 @@ class SeaIceDataDialog(QtGui.QDialog, Ui_SeaIceData):
         mindate  = self.startDate.date()
         maxdate  = self.endDate.date()
         path     = self.txtPath.text()
+	pole     = self.datasetBox.currentText()
+
 	if path == "":
 	    self.plainTextEdit.appendPlainText("Error: Enter a download directory.")
         else:
-            self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite)
+            self.downloadThread = DownloadThread(path, mindate, maxdate, self.composite, pole)
             self.connect(self.downloadThread, QtCore.SIGNAL("update(QString)"), self.log)
 	    self.downloadThread.start()
             self.connect(self.downloadThread, QtCore.SIGNAL('finished()'), self.addlayers)

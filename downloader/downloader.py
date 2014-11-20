@@ -1,8 +1,9 @@
 from nsidc.dailyantarctic import DailyAntarctic
-
+from nsidc.dailyarctic import DailyArctic
 
 __downloaders = {
-	'dailyantarctic': DailyAntarctic,
+	'Antarctic': DailyAntarctic,
+	'Arctic': DailyArctic,
 }
 
 def get(k):

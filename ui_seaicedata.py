@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_seaicedata.ui'
 #
-# Created: Wed Oct 15 20:52:15 2014
+# Created: Thu Nov 20 13:06:16 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_SeaIceData(object):
     def setupUi(self, SeaIceData):
         SeaIceData.setObjectName(_fromUtf8("SeaIceData"))
-        SeaIceData.resize(425, 408)
+        SeaIceData.resize(425, 424)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -35,7 +35,7 @@ class Ui_SeaIceData(object):
         SeaIceData.setWindowTitle(_fromUtf8(""))
         SeaIceData.setSizeGripEnabled(False)
         self.layoutWidget = QtGui.QWidget(SeaIceData)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 405, 384))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 406, 403))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.layoutWidget)
         self.gridLayout_2.setMargin(0)
@@ -80,7 +80,7 @@ class Ui_SeaIceData(object):
         self.endDate.setDate(QtCore.QDate(2013, 12, 31))
         self.endDate.setObjectName(_fromUtf8("endDate"))
         self.horizontalLayout.addWidget(self.endDate)
-        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.label = QtGui.QLabel(self.layoutWidget)
@@ -95,13 +95,18 @@ class Ui_SeaIceData(object):
         self.toolButton = QtGui.QToolButton(self.layoutWidget)
         self.toolButton.setObjectName(_fromUtf8("toolButton"))
         self.horizontalLayout_2.addWidget(self.toolButton)
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
         self.checkBoxComposite = QtGui.QCheckBox(self.layoutWidget)
         self.checkBoxComposite.setObjectName(_fromUtf8("checkBoxComposite"))
-        self.gridLayout.addWidget(self.checkBoxComposite, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.checkBoxComposite, 3, 0, 1, 1)
         self.checkBoxCanvas = QtGui.QCheckBox(self.layoutWidget)
         self.checkBoxCanvas.setObjectName(_fromUtf8("checkBoxCanvas"))
-        self.gridLayout.addWidget(self.checkBoxCanvas, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.checkBoxCanvas, 4, 0, 1, 1)
+        self.datasetBox = QtGui.QComboBox(self.layoutWidget)
+        self.datasetBox.setObjectName(_fromUtf8("datasetBox"))
+        self.datasetBox.addItem(_fromUtf8(""))
+        self.datasetBox.addItem(_fromUtf8(""))
+        self.gridLayout.addWidget(self.datasetBox, 0, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         self.plainTextEdit = QtGui.QPlainTextEdit(self.layoutWidget)
         self.plainTextEdit.setEnabled(True)
@@ -140,7 +145,9 @@ class Ui_SeaIceData(object):
         self.toolButton.setText(_translate("SeaIceData", "...", None))
         self.checkBoxComposite.setText(_translate("SeaIceData", "Create composite", None))
         self.checkBoxCanvas.setText(_translate("SeaIceData", "Add data to canvas", None))
-        self.plainTextEdit.setPlainText(_translate("SeaIceData", "This plugin provides access to sea ice concentration data from NSIDC (National Snow and Ice Data Centre). For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.\n"
+        self.datasetBox.setItemText(0, _translate("SeaIceData", "Antarctic", None))
+        self.datasetBox.setItemText(1, _translate("SeaIceData", "Arctic", None))
+        self.plainTextEdit.setPlainText(_translate("SeaIceData", "This plugin provides access to sea ice concentration data from NSIDC (National Snow and Ice Data Centre), for both Arctic and Antarctic. For full details, refer to the official documentation at http://nsidc.org/data/nsidc-0051.\n"
 "", None))
         self.btnDownload.setText(_translate("SeaIceData", "Download", None))
 
