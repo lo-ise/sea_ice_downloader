@@ -4,7 +4,7 @@ Sea Ice Concentration Downloader v1.0.0
 ##What it does
 This is a QGIS Plugin which allows easy download of sea ice concentration data from [NSIDC](http://nsidc.org/data/seaice_index/) (National Snow and Ice Data Centre). 
 
-It downloads daily sea ice concentration grids within a defined time range together with an optional averaged composite of all downloaded data. The data is saved in GeoTiff format, and projected to Antarctic Polar Stereographic (EPSG: 3031). 
+It downloads daily sea ice concentration grids within a defined time range together with an optional averaged composite of all downloaded data. The data is saved in GeoTiff format, and projected. 
 
 The Plugin is currently working, but has not been subject to wide use. Therefore, there may be problems with it. 
 
@@ -34,7 +34,7 @@ The plugin requires QGIS version 2.0 or higher. It can be installed via the Plug
 1. ![Toolbar button](images/icon_button.png)  Locate this icon on the toolbar and click it to open the plugin.
 ![Plugin interface](images/interface.png)
 
-2. Select a **date range** and **download path**. Select whether you want to create an averaged **composite** and whether you wish to add the composite to the map canvas. 
+2. Select either **Antarctic** or **Arctic**, a **date range** and **download path**. Select whether you want to create an averaged **composite** and whether you wish to add the composite to the map canvas. 
 
 3. Click **Download**
 
